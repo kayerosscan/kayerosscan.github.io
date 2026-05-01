@@ -428,6 +428,88 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ---- Donate (UPI deep link) ----
+    const donateAmounts = document.getElementById('donateAmounts');
+    if (donateAmounts) {
+        const VPA = '9971117952@ybl';
+        const PAYEE = 'Kayeross Can Foundation';
+        const payBtn = document.getElementById('donatePayBtn');
+        const payLabel = document.getElementById('donatePayLabel');
+        const customWrap = document.getElementById('donateCustomWrap');
+        const customInput = document.getElementById('donateCustom');
+        const vpaCopy = document.getElementById('donateVpaCopy');
+        const vpaValue = document.getElementById('donateVpa');
+
+        const buildUpiUrl = (amount) => {
+            const params = new URLSearchParams({
+                pa: VPA,
+                pn: PAYEE,
+                cu: 'INR',
+                tn: 'Donation to Kayeross Can Foundation'
+            });
+            if (amount && Number(amount) > 0) params.set('am', String(amount));
+            return `upi://pay?${params.toString()}`;
+        };
+
+        const formatINR = (n) => '₹' + Number(n).toLocaleString('en-IN');
+
+        const setAmount = (amount) => {
+            const isCustom = amount === 'custom';
+            customWrap.hidden = !isCustom;
+            const value = isCustom ? Number(customInput.value || 0) : Number(amount);
+            payBtn.href = buildUpiUrl(value);
+            if (isCustom && !value) {
+                payLabel.textContent = 'Pay with UPI';
+            } else if (value) {
+                payLabel.textContent = `Pay ${formatINR(value)} with UPI`;
+            } else {
+                payLabel.textContent = 'Pay with UPI';
+            }
+        };
+
+        donateAmounts.querySelectorAll('.donate-amount').forEach(btn => {
+            btn.addEventListener('click', () => {
+                donateAmounts.querySelectorAll('.donate-amount').forEach(b => b.classList.remove('is-selected'));
+                btn.classList.add('is-selected');
+                setAmount(btn.dataset.amount);
+                if (btn.dataset.amount === 'custom') {
+                    setTimeout(() => customInput.focus(), 50);
+                }
+            });
+        });
+
+        customInput.addEventListener('input', () => {
+            setAmount('custom');
+        });
+
+        // Initialise with the pre-selected ₹501
+        const preselected = donateAmounts.querySelector('.donate-amount.is-selected');
+        if (preselected) setAmount(preselected.dataset.amount);
+
+        // Copy VPA
+        vpaCopy.addEventListener('click', async () => {
+            const text = vpaValue.textContent.trim();
+            try {
+                await navigator.clipboard.writeText(text);
+            } catch {
+                const r = document.createRange();
+                r.selectNodeContents(vpaValue);
+                const sel = window.getSelection();
+                sel.removeAllRanges();
+                sel.addRange(r);
+                document.execCommand('copy');
+                sel.removeAllRanges();
+            }
+            const original = vpaCopy.querySelector('span').textContent;
+            vpaCopy.classList.add('is-copied');
+            vpaCopy.querySelector('span').textContent = 'Copied!';
+            setTimeout(() => {
+                vpaCopy.classList.remove('is-copied');
+                vpaCopy.querySelector('span').textContent = original;
+            }, 1600);
+        });
+    }
+
     // ---- Subtle parallax for hero parrots ----
     const parrots = document.querySelectorAll('.parrot');
     if (parrots.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

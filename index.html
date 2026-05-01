@@ -625,17 +625,55 @@
 
     <!-- ========== DONATE ========== -->
     <section class="section section--donate" id="donate">
-        <div class="container donate__container" data-aos="zoom-in">
-            <span class="section__eyebrow">Support Our Mission</span>
-            <h2 class="section__title">Every contribution reaches another patient.</h2>
-            <p class="donate__text">
-                We rely on the generosity of people who believe in dignity and compassion. Your support helps us keep every call free, every patient heard, every family supported.
-            </p>
-            <div class="donate__placeholder">
-                <p><strong>Donation details coming soon.</strong></p>
-                <p>For now, please reach out to us directly using the contact details below — we will personally guide you through how to contribute.</p>
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <span class="section__eyebrow">Support Our Mission</span>
+                <h2 class="section__title">Every contribution reaches another patient.</h2>
+                <p class="section__subtitle">Donate via UPI in seconds — works with Paytm, GPay, PhonePe, BHIM and any UPI app. 100% of your donation goes to patient support.</p>
             </div>
-            <a href="#contact" class="btn btn--primary">Contact Us to Donate</a>
+
+            <div class="donate__card" data-aos="fade-up">
+                <div class="donate__pay">
+                    <h3 class="donate__heading">Choose an amount</h3>
+                    <div class="donate__amounts" id="donateAmounts">
+                        <button type="button" class="donate-amount" data-amount="201">₹201</button>
+                        <button type="button" class="donate-amount is-selected" data-amount="501">₹501</button>
+                        <button type="button" class="donate-amount" data-amount="1001">₹1,001</button>
+                        <button type="button" class="donate-amount" data-amount="2100">₹2,100</button>
+                        <button type="button" class="donate-amount" data-amount="5100">₹5,100</button>
+                        <button type="button" class="donate-amount donate-amount--custom" data-amount="custom">Other</button>
+                    </div>
+                    <div class="donate__custom" id="donateCustomWrap" hidden>
+                        <label for="donateCustom">Enter amount (₹)</label>
+                        <input type="number" id="donateCustom" min="1" step="1" inputmode="numeric" placeholder="e.g. 750" />
+                    </div>
+
+                    <a href="#" class="btn btn--primary donate__pay-btn" id="donatePayBtn">
+                        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2 4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4zm-1 14-4-4 1.4-1.4L11 13.2l5.6-5.6L18 9l-7 7z"/></svg>
+                        <span id="donatePayLabel">Pay ₹501 with UPI</span>
+                    </a>
+                    <p class="donate__hint">Opens your UPI app — Paytm, GPay, PhonePe, BHIM. On desktop, scan the QR with any UPI app.</p>
+
+                    <div class="donate__vpa">
+                        <span class="donate__vpa-label">UPI ID</span>
+                        <code class="donate__vpa-value" id="donateVpa">9971117952@ybl</code>
+                        <button type="button" class="donate__vpa-copy" id="donateVpaCopy" aria-label="Copy UPI ID">
+                            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="donate__qr">
+                    <div class="donate__qr-frame">
+                        <img src="assets/upi-qr.svg" alt="UPI QR code for Kayeross Can Foundation — 9971117952@ybl" width="220" height="220" />
+                    </div>
+                    <p class="donate__qr-caption">Scan with any UPI app</p>
+                    <p class="donate__qr-name">Kayeross Can Foundation</p>
+                </div>
+            </div>
+
+            <p class="donate__note">For grants, partnerships, or 80G receipt enquiries, please <a href="#contact">reach out to us</a>.</p>
         </div>
     </section>
 
