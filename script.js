@@ -62,9 +62,118 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
     });
 
-    // ---- Patient registration form ----
+    // ---- Modal helpers (generic) ----
+    const openModal = (modal) => {
+        if (!modal) return;
+        modal.hidden = false;
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+            const focusTarget = modal.querySelector('.wizard__panel.is-active input:not([type=hidden]):not([type=checkbox]), .wizard__panel.is-active select, .wizard__panel.is-active textarea')
+                || modal.querySelector('.modal__close');
+            focusTarget?.focus();
+        }, 120);
+    };
+    const closeModal = (modal) => {
+        if (!modal) return;
+        modal.hidden = true;
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('[data-modal-open]').forEach(trigger => {
+        trigger.addEventListener('click', e => {
+            e.preventDefault();
+            openModal(document.getElementById(trigger.dataset.modalOpen));
+        });
+    });
+    document.querySelectorAll('[data-modal-close]').forEach(trigger => {
+        trigger.addEventListener('click', () => closeModal(trigger.closest('.modal')));
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal:not([hidden])').forEach(closeModal);
+        }
+    });
+
+    // ---- Patient registration wizard ----
     const regForm = document.getElementById('registerForm');
     if (regForm) {
+        const panels = Array.from(regForm.querySelectorAll('.wizard__panel'));
+        const stepIndicators = document.querySelectorAll('#wizardSteps .wizard__step');
+        const fill = document.getElementById('wizardFill');
+        const counter = document.getElementById('wizardCounter');
+        const label = document.getElementById('wizardLabel');
+        const prevBtn = document.getElementById('wizardPrev');
+        const nextBtn = document.getElementById('wizardNext');
+        const submitBtn = document.getElementById('wizardSubmit');
+        const feedback = document.getElementById('registerFeedback');
+        const successPanel = document.getElementById('registerSuccess');
+        const modalBody = document.getElementById('modalBody');
+
+        const STEP_LABELS = [
+            'Patient Demographics',
+            'Person filling this form',
+            'Medical Information',
+            'Support needs',
+            'Documents',
+            'Consent'
+        ];
+        const TOTAL = panels.length;
+        let current = 0;
+
+        const showStep = (idx) => {
+            current = idx;
+            panels.forEach((p, i) => p.classList.toggle('is-active', i === idx));
+            stepIndicators.forEach((s, i) => {
+                s.classList.toggle('is-active', i === idx);
+                s.classList.toggle('is-complete', i < idx);
+            });
+            fill.style.width = `${((idx + 1) / TOTAL) * 100}%`;
+            counter.textContent = `Step ${idx + 1} of ${TOTAL}`;
+            label.textContent = `Step ${idx + 1} of ${TOTAL} · ${STEP_LABELS[idx]}`;
+            prevBtn.disabled = idx === 0;
+            nextBtn.hidden = idx === TOTAL - 1;
+            submitBtn.hidden = idx !== TOTAL - 1;
+            feedback.textContent = '';
+            modalBody.scrollTop = 0;
+            // Focus first input on the new panel
+            setTimeout(() => {
+                const first = panels[idx].querySelector('input:not([type=hidden]):not([type=checkbox]), select, textarea');
+                first?.focus({ preventScroll: true });
+            }, 50);
+        };
+
+        const validatePanel = (panel) => {
+            const required = panel.querySelectorAll('[required]');
+            for (const f of required) {
+                if ((f.type === 'checkbox' && !f.checked) || (f.type !== 'checkbox' && !f.value.trim())) {
+                    feedback.textContent = 'Please complete all required fields before continuing.';
+                    feedback.style.color = '#D32F2F';
+                    f.focus();
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        nextBtn.addEventListener('click', () => {
+            if (!validatePanel(panels[current])) return;
+            if (current < TOTAL - 1) showStep(current + 1);
+        });
+        prevBtn.addEventListener('click', () => {
+            if (current > 0) showStep(current - 1);
+        });
+
+        // Prevent Enter key from submitting form mid-wizard; advance to next step instead
+        regForm.addEventListener('submit', e => e.preventDefault());
+        regForm.addEventListener('keydown', e => {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                if (current < TOTAL - 1) nextBtn.click();
+            }
+        });
+
         // Pain level live value
         const painSlider = document.getElementById('painLevel');
         const painValue = document.getElementById('painLevelValue');
@@ -94,27 +203,9 @@ document.addEventListener('DOMContentLoaded', () => {
         fileInputs.forEach(inp => inp.addEventListener('change', updateSize));
 
         // Submit
-        const feedback = document.getElementById('registerFeedback');
-        const submitBtn = regForm.querySelector('.register-form__submit');
-        const successPanel = document.getElementById('registerSuccess');
+        submitBtn.addEventListener('click', async () => {
+            if (!validatePanel(panels[TOTAL - 1])) return;
 
-        regForm.addEventListener('submit', async e => {
-            e.preventDefault();
-            feedback.textContent = '';
-            feedback.style.color = '';
-
-            // Required-field check
-            const required = regForm.querySelectorAll('[required]');
-            for (const f of required) {
-                if (!f.value || (f.type === 'checkbox' && !f.checked)) {
-                    feedback.textContent = 'Please fill in all required fields and tick both consent boxes.';
-                    feedback.style.color = '#D32F2F';
-                    f.focus();
-                    return;
-                }
-            }
-
-            // File size guard
             let total = 0;
             fileInputs.forEach(inp => Array.from(inp.files).forEach(f => total += f.size));
             if (total > MAX_BYTES) {
@@ -123,7 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Submit to Web3Forms
             submitBtn.disabled = true;
             submitBtn.textContent = 'Submitting…';
             feedback.textContent = '';
@@ -138,18 +228,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (res.ok && json.success) {
                     regForm.hidden = true;
+                    document.getElementById('modalFooter').hidden = true;
+                    document.querySelector('#registerModal .wizard__progress').hidden = true;
                     successPanel.hidden = false;
-                    successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 } else {
                     throw new Error(json.message || `Submission failed (HTTP ${res.status})`);
                 }
             } catch (err) {
-                feedback.textContent = `Sorry — we couldn't submit your registration. ${err.message}. Please call us directly at 9971117952.`;
+                feedback.textContent = `Sorry — we couldn't submit your registration. ${err.message} Please call us directly at 9971117952.`;
                 feedback.style.color = '#D32F2F';
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Registration';
             }
         });
+
+        // Initialize wizard at step 1
+        showStep(0);
     }
 
     // ---- Subtle parallax for hero parrots ----

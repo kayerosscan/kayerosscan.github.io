@@ -20,11 +20,15 @@
         <div class="nav__inner container">
             <a href="#hero" class="nav__brand" aria-label="Kayeross Can Foundation home">
                 <svg class="nav__brand-icon" viewBox="0 0 60 60" aria-hidden="true">
-                    <ellipse cx="30" cy="35" rx="14" ry="17" fill="#FF69B4"/>
-                    <circle cx="36" cy="22" r="11" fill="#FF85C1"/>
-                    <path d="M 44 23 L 53 25 L 44 29 Z" fill="#FFA94D"/>
-                    <circle cx="38" cy="20" r="2" fill="#2C2C2C"/>
-                    <path d="M 32 12 Q 35 5 40 8 Q 38 14 35 16 Z" fill="#E91E63"/>
+                    <ellipse cx="22" cy="40" rx="13" ry="15" fill="#FF69B4"/>
+                    <ellipse cx="20" cy="44" rx="7" ry="10" fill="#FFD1DC"/>
+                    <path d="M 22 30 Q 14 42 22 52 Q 30 45 28 32 Z" fill="#E91E63"/>
+                    <circle cx="34" cy="22" r="11" fill="#FF85C1"/>
+                    <path d="M 30 9 Q 28 0 35 2 Q 36 8 33 13 Z" fill="#E91E63"/>
+                    <path d="M 36 8 Q 38 0 44 4 Q 42 10 38 14 Z" fill="#FF1493"/>
+                    <circle cx="38" cy="20" r="2.4" fill="white"/>
+                    <circle cx="38" cy="20" r="1.4" fill="#2C2C2C"/>
+                    <path d="M 44 23 Q 52 26 49 32 Q 45 35 42 32 Q 41 27 44 23 Z" fill="#888"/>
                 </svg>
                 <span class="nav__brand-text">Kayeross Can</span>
             </a>
@@ -38,7 +42,7 @@
                 <li><a href="#founder">Founder</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#register">Register</a></li>
+                <li><a href="#register" data-modal-open="registerModal">Register</a></li>
                 <li><a href="#volunteer">Volunteer</a></li>
                 <li><a href="#donate">Donate</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -52,42 +56,82 @@
         <div class="hero__bg-blob hero__bg-blob--1"></div>
         <div class="hero__bg-blob hero__bg-blob--2"></div>
 
-        <!-- Floating parrots -->
-        <svg class="parrot parrot--1" viewBox="0 0 200 200" aria-hidden="true">
-            <path d="M 50 130 Q 30 150 25 185 L 45 175 Q 55 155 65 145 Z" fill="#FFB6C1"/>
-            <ellipse cx="100" cy="120" rx="45" ry="55" fill="#FF69B4"/>
-            <ellipse cx="100" cy="135" rx="28" ry="38" fill="#FFD1DC"/>
-            <path d="M 80 100 Q 70 130 80 160 Q 100 140 92 110 Z" fill="#E91E63"/>
-            <circle cx="120" cy="70" r="35" fill="#FF85C1"/>
-            <path d="M 150 75 L 172 80 L 150 92 Z" fill="#FFA94D"/>
-            <circle cx="130" cy="65" r="5" fill="#2C2C2C"/>
-            <circle cx="131" cy="63" r="2" fill="white"/>
-            <path d="M 110 38 Q 115 22 128 28 Q 122 40 116 45 Z" fill="#E91E63"/>
-            <ellipse cx="100" cy="180" rx="8" ry="6" fill="#FFA94D"/>
+        <!-- Floating parrots — pink galah-style -->
+        <svg class="parrot parrot--1" viewBox="0 0 220 220" aria-hidden="true">
+            <!-- Tail feathers -->
+            <path d="M 40 145 Q 22 175 18 205 L 40 188 Q 55 172 60 158 Z" fill="#FFB6C1"/>
+            <path d="M 52 152 Q 36 182 35 210 L 58 198 Q 72 182 75 168 Z" fill="#FF85C1"/>
+            <path d="M 64 158 Q 50 188 56 213 L 78 200 Q 88 188 90 175 Z" fill="#E91E63"/>
+            <!-- Body -->
+            <ellipse cx="100" cy="135" rx="48" ry="55" fill="#FF69B4"/>
+            <ellipse cx="92" cy="148" rx="28" ry="38" fill="#FFD1DC"/>
+            <!-- Wing -->
+            <path d="M 100 100 Q 75 120 88 175 Q 125 158 118 110 Z" fill="#E91E63"/>
+            <path d="M 92 115 Q 90 145 95 165" stroke="#C2185B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M 102 110 Q 100 140 105 160" stroke="#C2185B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M 112 110 Q 112 138 115 155" stroke="#C2185B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- Neck -->
+            <path d="M 110 92 Q 115 78 132 80 L 138 100 L 115 108 Z" fill="#FF85C1"/>
+            <!-- Head -->
+            <circle cx="148" cy="65" r="38" fill="#FF85C1"/>
+            <!-- Crest feathers -->
+            <path d="M 138 30 Q 132 8 145 12 Q 147 25 142 38 Z" fill="#E91E63"/>
+            <path d="M 148 25 Q 148 5 162 8 Q 162 22 154 35 Z" fill="#FF1493"/>
+            <path d="M 160 32 Q 165 12 175 18 Q 170 30 165 40 Z" fill="#E91E63"/>
+            <!-- Eye -->
+            <circle cx="158" cy="60" r="8" fill="white"/>
+            <circle cx="158" cy="60" r="5.5" fill="#2C2C2C"/>
+            <circle cx="160" cy="58" r="2" fill="white"/>
+            <!-- Hooked beak -->
+            <path d="M 178 65 Q 200 70 196 84 Q 190 96 178 92 Q 168 88 170 78 Q 173 68 178 65 Z" fill="#888"/>
+            <path d="M 175 80 Q 184 88 192 84" stroke="#555" stroke-width="0.8" fill="none"/>
+            <circle cx="184" cy="73" r="1.3" fill="#444"/>
+            <!-- Cheek blush -->
+            <ellipse cx="142" cy="82" rx="6" ry="4" fill="#FFD1DC" opacity="0.6"/>
         </svg>
 
-        <svg class="parrot parrot--2" viewBox="0 0 200 200" aria-hidden="true">
-            <path d="M 50 130 Q 30 150 25 185 L 45 175 Q 55 155 65 145 Z" fill="#FFC0CB"/>
-            <ellipse cx="100" cy="120" rx="42" ry="52" fill="#FF85C1"/>
-            <ellipse cx="100" cy="135" rx="26" ry="36" fill="#FFE5EC"/>
-            <path d="M 80 100 Q 70 130 80 160 Q 100 140 92 110 Z" fill="#E91E63"/>
-            <circle cx="120" cy="70" r="33" fill="#FF99CC"/>
-            <path d="M 148 75 L 168 80 L 148 90 Z" fill="#FFA94D"/>
-            <circle cx="128" cy="65" r="4.5" fill="#2C2C2C"/>
-            <circle cx="129" cy="63" r="2" fill="white"/>
-            <path d="M 110 40 Q 115 25 126 30 Q 121 41 115 45 Z" fill="#E91E63"/>
+        <svg class="parrot parrot--2" viewBox="0 0 220 220" aria-hidden="true">
+            <path d="M 40 145 Q 22 175 18 205 L 40 188 Q 55 172 60 158 Z" fill="#FFC0CB"/>
+            <path d="M 52 152 Q 36 182 35 210 L 58 198 Q 72 182 75 168 Z" fill="#FF99CC"/>
+            <path d="M 64 158 Q 50 188 56 213 L 78 200 Q 88 188 90 175 Z" fill="#FF69B4"/>
+            <ellipse cx="100" cy="135" rx="46" ry="52" fill="#FF85C1"/>
+            <ellipse cx="92" cy="148" rx="26" ry="36" fill="#FFE5EC"/>
+            <path d="M 100 100 Q 75 120 88 175 Q 125 158 118 110 Z" fill="#FF69B4"/>
+            <path d="M 92 115 Q 90 145 95 165" stroke="#E91E63" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M 102 110 Q 100 140 105 160" stroke="#E91E63" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M 110 92 Q 115 78 132 80 L 138 100 L 115 108 Z" fill="#FF99CC"/>
+            <circle cx="148" cy="65" r="36" fill="#FF99CC"/>
+            <path d="M 138 30 Q 132 8 145 12 Q 147 25 142 38 Z" fill="#FF1493"/>
+            <path d="M 148 25 Q 148 5 162 8 Q 162 22 154 35 Z" fill="#E91E63"/>
+            <path d="M 160 32 Q 165 12 175 18 Q 170 30 165 40 Z" fill="#FF1493"/>
+            <circle cx="156" cy="60" r="7" fill="white"/>
+            <circle cx="156" cy="60" r="4.8" fill="#2C2C2C"/>
+            <circle cx="158" cy="58" r="1.8" fill="white"/>
+            <path d="M 175 65 Q 196 70 192 83 Q 187 94 175 91 Q 167 87 168 78 Q 170 68 175 65 Z" fill="#888"/>
+            <circle cx="181" cy="73" r="1.2" fill="#444"/>
+            <ellipse cx="142" cy="82" rx="5" ry="3.5" fill="#FFD1DC" opacity="0.6"/>
         </svg>
 
-        <svg class="parrot parrot--3" viewBox="0 0 200 200" aria-hidden="true">
-            <path d="M 50 130 Q 30 150 25 185 L 45 175 Q 55 155 65 145 Z" fill="#FFB6C1"/>
-            <ellipse cx="100" cy="120" rx="40" ry="50" fill="#FF69B4"/>
-            <ellipse cx="100" cy="135" rx="24" ry="34" fill="#FFD1DC"/>
-            <path d="M 80 100 Q 70 130 80 160 Q 100 140 92 110 Z" fill="#C2185B"/>
-            <circle cx="120" cy="70" r="32" fill="#FF85C1"/>
-            <path d="M 148 75 L 168 80 L 148 90 Z" fill="#FFA94D"/>
-            <circle cx="128" cy="65" r="4.5" fill="#2C2C2C"/>
-            <circle cx="129" cy="63" r="2" fill="white"/>
-            <path d="M 110 40 Q 115 24 126 30 Q 121 41 115 45 Z" fill="#FF1493"/>
+        <svg class="parrot parrot--3" viewBox="0 0 220 220" aria-hidden="true">
+            <path d="M 40 145 Q 22 175 18 205 L 40 188 Q 55 172 60 158 Z" fill="#FFB6C1"/>
+            <path d="M 52 152 Q 36 182 35 210 L 58 198 Q 72 182 75 168 Z" fill="#E91E63"/>
+            <path d="M 64 158 Q 50 188 56 213 L 78 200 Q 88 188 90 175 Z" fill="#C2185B"/>
+            <ellipse cx="100" cy="135" rx="44" ry="50" fill="#FF69B4"/>
+            <ellipse cx="92" cy="148" rx="24" ry="34" fill="#FFD1DC"/>
+            <path d="M 100 100 Q 75 120 88 175 Q 125 158 118 110 Z" fill="#C2185B"/>
+            <path d="M 92 115 Q 90 145 95 165" stroke="#880E4F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M 102 110 Q 100 140 105 160" stroke="#880E4F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <path d="M 110 92 Q 115 78 132 80 L 138 100 L 115 108 Z" fill="#FF85C1"/>
+            <circle cx="148" cy="65" r="36" fill="#FF85C1"/>
+            <path d="M 138 30 Q 132 8 145 12 Q 147 25 142 38 Z" fill="#FF1493"/>
+            <path d="M 148 25 Q 148 5 162 8 Q 162 22 154 35 Z" fill="#E91E63"/>
+            <path d="M 160 32 Q 165 12 175 18 Q 170 30 165 40 Z" fill="#FF1493"/>
+            <circle cx="156" cy="60" r="7" fill="white"/>
+            <circle cx="156" cy="60" r="4.8" fill="#2C2C2C"/>
+            <circle cx="158" cy="58" r="1.8" fill="white"/>
+            <path d="M 175 65 Q 196 70 192 83 Q 187 94 175 91 Q 167 87 168 78 Q 170 68 175 65 Z" fill="#888"/>
+            <circle cx="181" cy="73" r="1.2" fill="#444"/>
+            <ellipse cx="142" cy="82" rx="5" ry="3.5" fill="#FFD1DC" opacity="0.6"/>
         </svg>
 
         <div class="container hero__content">
@@ -110,7 +154,7 @@
                 </a>
             </div>
             <p class="hero__note">Available across India · No appointments needed</p>
-            <a href="#register" class="hero__register-link">Or register a patient online →</a>
+            <a href="#register" class="hero__register-link" data-modal-open="registerModal">Or register a patient online →</a>
         </div>
 
         <div class="hero__scroll-cue" aria-hidden="true">
@@ -169,13 +213,10 @@
                     <div class="founder__photo-placeholder">
                         <span>KP</span>
                     </div>
-                    <svg class="founder__deco" viewBox="0 0 100 100" aria-hidden="true">
-                        <circle cx="50" cy="50" r="48" fill="none" stroke="#E91E63" stroke-width="1" stroke-dasharray="4 6"/>
-                    </svg>
                 </div>
                 <div class="founder__bio">
                     <h3 class="founder__name">Dr. Kritie Pasrichaa</h3>
-                    <p class="founder__role">Chairman &amp; Founder</p>
+                    <p class="founder__role">Founder &amp; Chairman</p>
                     <p>
                         Dr. Kritie Pasrichaa founded Kayeross Can Foundation with a singular vision — that no patient should walk the palliative care journey alone, and no family should be turned away for lack of resources.
                     </p>
@@ -285,25 +326,59 @@
         </div>
     </section>
 
-    <!-- ========== REGISTER PATIENT ========== -->
+    <!-- ========== REGISTER PATIENT (CTA only — form lives in modal) ========== -->
     <section class="section section--register" id="register">
         <div class="container">
-            <div class="section__header" data-aos="fade-up">
+            <div class="register-cta" data-aos="fade-up">
                 <span class="section__eyebrow">Patient Registration</span>
                 <h2 class="section__title">Tell us about the patient.</h2>
                 <p class="section__subtitle">Share as much or as little as you can. Our team will reach out within 24 hours to begin support — completely free of cost.</p>
+                <button type="button" class="btn btn--primary register-cta__btn" data-modal-open="registerModal">
+                    Start Registration
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M5 3l14 9-14 9V3z"/></svg>
+                </button>
+                <p class="register-cta__note">Takes ~5 minutes · 6 short steps · All information confidential</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PATIENT REGISTRATION MODAL ========== -->
+    <div class="modal" id="registerModal" hidden aria-hidden="true">
+        <div class="modal__backdrop" data-modal-close></div>
+        <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="registerModalTitle">
+            <header class="modal__header">
+                <div class="modal__heading">
+                    <h2 id="registerModalTitle">Register a Patient</h2>
+                    <p class="modal__subtitle" id="wizardLabel">Step 1 of 6 · Patient Demographics</p>
+                </div>
+                <button type="button" class="modal__close" data-modal-close aria-label="Close registration form">×</button>
+            </header>
+
+            <div class="wizard__progress">
+                <div class="wizard__progress-track">
+                    <div class="wizard__progress-fill" id="wizardFill" style="width:16.66%"></div>
+                </div>
+                <div class="wizard__steps" id="wizardSteps">
+                    <span class="wizard__step is-active" data-step="1">1</span>
+                    <span class="wizard__step" data-step="2">2</span>
+                    <span class="wizard__step" data-step="3">3</span>
+                    <span class="wizard__step" data-step="4">4</span>
+                    <span class="wizard__step" data-step="5">5</span>
+                    <span class="wizard__step" data-step="6">6</span>
+                </div>
             </div>
 
-            <form class="register-form" id="registerForm" data-aos="fade-up" novalidate>
+            <div class="modal__body" id="modalBody">
+                <form id="registerForm" novalidate>
                 <!-- Web3Forms hidden fields -->
                 <input type="hidden" name="access_key" value="1cbd2ec3-4a14-4e12-89c1-57e5fdea23c8" />
                 <input type="hidden" name="subject" value="New Patient Registration — Kayeross Can Foundation" />
                 <input type="hidden" name="from_name" value="Kayeross Can Website" />
                 <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
-                <!-- ===== Section 1: Patient Demographics ===== -->
-                <fieldset class="form-section">
-                    <legend><span class="form-section__num">1</span> Patient Demographics</legend>
+                <!-- ===== Step 1: Patient Demographics ===== -->
+                <fieldset class="form-section wizard__panel is-active" data-step="1">
+                    <legend>Patient Demographics</legend>
                     <div class="form-grid">
                         <div class="form__row form__row--span2">
                             <label for="patientName">Patient's full name <span class="req">*</span></label>
@@ -346,9 +421,9 @@
                     </div>
                 </fieldset>
 
-                <!-- ===== Section 2: Person Filling This Form ===== -->
-                <fieldset class="form-section">
-                    <legend><span class="form-section__num">2</span> Person filling this form</legend>
+                <!-- ===== Step 2: Person Filling This Form ===== -->
+                <fieldset class="form-section wizard__panel" data-step="2">
+                    <legend>Person filling this form</legend>
                     <div class="form-grid">
                         <div class="form__row">
                             <label for="contactName">Your name <span class="req">*</span></label>
@@ -369,9 +444,9 @@
                     </div>
                 </fieldset>
 
-                <!-- ===== Section 3: Medical Information ===== -->
-                <fieldset class="form-section">
-                    <legend><span class="form-section__num">3</span> Medical Information</legend>
+                <!-- ===== Step 3: Medical Information ===== -->
+                <fieldset class="form-section wizard__panel" data-step="3">
+                    <legend>Medical Information</legend>
                     <div class="form-grid">
                         <div class="form__row form__row--span2">
                             <label for="diagnosis">Primary diagnosis <span class="req">*</span></label>
@@ -423,9 +498,9 @@
                     </div>
                 </fieldset>
 
-                <!-- ===== Section 4: What support do you need ===== -->
-                <fieldset class="form-section">
-                    <legend><span class="form-section__num">4</span> What support do you need from us?</legend>
+                <!-- ===== Step 4: What support do you need ===== -->
+                <fieldset class="form-section wizard__panel" data-step="4">
+                    <legend>What support do you need from us?</legend>
                     <p class="form-section__hint">Tick all that apply. We will tailor our response to your needs.</p>
                     <div class="needs-grid">
                         <label class="needs-card"><input type="checkbox" name="needs[]" value="Finding the right doctor" /><span>Finding the right doctor</span></label>
@@ -445,9 +520,9 @@
                     </div>
                 </fieldset>
 
-                <!-- ===== Section 5: Upload Documents ===== -->
-                <fieldset class="form-section">
-                    <legend><span class="form-section__num">5</span> Upload documents <span class="optional">(optional)</span></legend>
+                <!-- ===== Step 5: Upload Documents ===== -->
+                <fieldset class="form-section wizard__panel" data-step="5">
+                    <legend>Upload documents <span class="optional">(optional)</span></legend>
                     <p class="form-section__hint">Sharing reports helps us guide you better. <strong>Total upload size must be under 10 MB.</strong></p>
                     <div class="form-grid">
                         <div class="form__row form__row--span2">
@@ -466,9 +541,9 @@
                     <p class="file-size-info" id="fileSizeInfo">Total selected: 0 MB</p>
                 </fieldset>
 
-                <!-- ===== Section 6: Consent & Submit ===== -->
-                <fieldset class="form-section form-section--consent">
-                    <legend><span class="form-section__num">6</span> Consent</legend>
+                <!-- ===== Step 6: Consent & Submit ===== -->
+                <fieldset class="form-section wizard__panel form-section--consent" data-step="6">
+                    <legend>Consent</legend>
                     <label class="consent-row">
                         <input type="checkbox" name="consent_accuracy" required />
                         <span>I confirm the information above is accurate to the best of my knowledge. <span class="req">*</span></span>
@@ -482,22 +557,29 @@
                     </p>
                 </fieldset>
 
-                <button type="submit" class="btn btn--primary btn--full register-form__submit">Submit Registration</button>
-                <p class="form__feedback" id="registerFeedback" aria-live="polite"></p>
-            </form>
+                    <p class="form__feedback" id="registerFeedback" aria-live="polite"></p>
+                </form>
 
-            <!-- Hidden until submission succeeds -->
-            <div class="register-success" id="registerSuccess" hidden>
-                <div class="register-success__icon">♥</div>
-                <h3>Thank you — your registration is received.</h3>
-                <p>Our team will personally reach out within <strong>24 hours</strong> to begin support. If your situation is urgent, please call us right now:</p>
-                <div class="hero__ctas" style="justify-content:center;">
-                    <a href="tel:+919971117952" class="btn btn--primary">Call: 9971117952</a>
-                    <a href="tel:+919896022206" class="btn btn--secondary">Call: 9896022206</a>
+                <!-- Hidden until submission succeeds -->
+                <div class="register-success" id="registerSuccess" hidden>
+                    <div class="register-success__icon">♥</div>
+                    <h3>Thank you — your registration is received.</h3>
+                    <p>Our team will personally reach out within <strong>24 hours</strong> to begin support. If your situation is urgent, please call us right now:</p>
+                    <div class="hero__ctas" style="justify-content:center;">
+                        <a href="tel:+919971117952" class="btn btn--primary">Call: 9971117952</a>
+                        <a href="tel:+919896022206" class="btn btn--secondary">Call: 9896022206</a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </div><!-- /modal__body -->
+
+            <footer class="modal__footer" id="modalFooter">
+                <button type="button" class="btn btn--secondary" id="wizardPrev" disabled>← Previous</button>
+                <span class="wizard__counter" id="wizardCounter">Step 1 of 6</span>
+                <button type="button" class="btn btn--primary" id="wizardNext">Next →</button>
+                <button type="button" class="btn btn--primary" id="wizardSubmit" hidden>Submit Registration</button>
+            </footer>
+        </div><!-- /modal__dialog -->
+    </div><!-- /modal -->
 
     <!-- ========== VOLUNTEER ========== -->
     <section class="section section--volunteer" id="volunteer">
@@ -575,14 +657,9 @@
                 </div>
 
                 <div class="contact-card" data-aos="fade-up" data-aos-delay="160">
-                    <h3>Headquarters</h3>
-                    <p class="contact-card__line">House No. 174, Sector 3A,<br />Rachna Vaishali, Ghaziabad,<br />Uttar Pradesh — 201010, India</p>
-                </div>
-
-                <div class="contact-card" data-aos="fade-up" data-aos-delay="240">
-                    <h3>Operations</h3>
+                    <h3>Operations Base</h3>
                     <p class="contact-card__line">Bhatinda,<br />Punjab, India</p>
-                    <p class="contact-card__note">Where the work happens</p>
+                    <p class="contact-card__note">Serving patients across India</p>
                 </div>
             </div>
         </div>
@@ -593,11 +670,15 @@
         <div class="container footer__inner">
             <div class="footer__brand">
                 <svg class="nav__brand-icon" viewBox="0 0 60 60" aria-hidden="true">
-                    <ellipse cx="30" cy="35" rx="14" ry="17" fill="#FF69B4"/>
-                    <circle cx="36" cy="22" r="11" fill="#FF85C1"/>
-                    <path d="M 44 23 L 53 25 L 44 29 Z" fill="#FFA94D"/>
-                    <circle cx="38" cy="20" r="2" fill="#2C2C2C"/>
-                    <path d="M 32 12 Q 35 5 40 8 Q 38 14 35 16 Z" fill="#E91E63"/>
+                    <ellipse cx="22" cy="40" rx="13" ry="15" fill="#FF69B4"/>
+                    <ellipse cx="20" cy="44" rx="7" ry="10" fill="#FFD1DC"/>
+                    <path d="M 22 30 Q 14 42 22 52 Q 30 45 28 32 Z" fill="#E91E63"/>
+                    <circle cx="34" cy="22" r="11" fill="#FF85C1"/>
+                    <path d="M 30 9 Q 28 0 35 2 Q 36 8 33 13 Z" fill="#E91E63"/>
+                    <path d="M 36 8 Q 38 0 44 4 Q 42 10 38 14 Z" fill="#FF1493"/>
+                    <circle cx="38" cy="20" r="2.4" fill="white"/>
+                    <circle cx="38" cy="20" r="1.4" fill="#2C2C2C"/>
+                    <path d="M 44 23 Q 52 26 49 32 Q 45 35 42 32 Q 41 27 44 23 Z" fill="#888"/>
                 </svg>
                 <span>Kayeross Can Foundation</span>
             </div>
