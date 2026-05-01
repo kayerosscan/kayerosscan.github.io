@@ -270,13 +270,13 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         manas: {
-            name: 'Manas Singh',
+            name: 'Dr. Manas Singh',
             role: 'Co-founder',
             initials: 'MS',
             bio: [
-                "Manas co-founded the Foundation alongside Dr. Kritie, drawn to the idea that the most fragile moments of a person's life deserve the most attentive care.",
-                "He brings operational rigour, partnership thinking, and a builder's mindset to a space that often runs on goodwill alone. From mapping out the first call lines to forging relationships with hospitals and volunteers, his fingerprints are on much of how the Foundation actually runs day to day.",
-                "For Manas, this work is deeply personal — and his commitment is to make sure no one is ever turned away."
+                "Dr. Manas co-founded the Foundation alongside Dr. Kritie, drawn to the idea that the most fragile moments of a person's life deserve the most attentive care.",
+                "He brings clinical depth, operational rigour, and a builder's mindset to a space that often runs on goodwill alone. From mapping out the first call lines to forging relationships with hospitals and volunteers, his fingerprints are on much of how the Foundation actually runs day to day.",
+                "For Dr. Manas, this work is deeply personal — and his commitment is to make sure no one is ever turned away."
             ]
         },
         sushil: {
