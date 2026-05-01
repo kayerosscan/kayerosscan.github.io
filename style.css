@@ -535,6 +535,15 @@ p { margin: 0 0 1em; color: var(--text-dark); }
     letter-spacing: 0.02em;
     box-shadow: 0 8px 20px rgba(233, 30, 99, 0.18);
     transition: transform .3s;
+    overflow: hidden;
+}
+.team-card__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: 50%;
+    display: block;
 }
 .team-card:hover .team-card__avatar { transform: scale(1.06) rotate(-3deg); }
 
