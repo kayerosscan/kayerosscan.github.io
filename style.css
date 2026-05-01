@@ -603,6 +603,295 @@ p { margin: 0 0 1em; color: var(--text-dark); }
 .contact-card--primary .contact-card__note { color: rgba(255,255,255,0.8); }
 
 /* ============================================================
+   REGISTER PATIENT
+============================================================ */
+.hero__register-link {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--pink-deep);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-bottom: 1.5px dashed var(--pink-primary);
+    padding-bottom: 2px;
+    transition: color .2s, border-color .2s;
+}
+.hero__register-link:hover { color: var(--pink-primary); border-bottom-color: var(--pink-deep); }
+
+.section--register { background: linear-gradient(180deg, var(--cream-warm), var(--white)); }
+.section__subtitle {
+    color: var(--text-soft);
+    font-size: 1.05rem;
+    margin-top: 14px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.register-form {
+    max-width: 920px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 48px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.form-section {
+    border: none;
+    border-top: 1.5px solid var(--pink-mist);
+    margin: 0;
+    padding: 32px 0 8px;
+}
+.form-section:first-of-type { border-top: none; padding-top: 0; }
+.form-section legend {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    padding: 0 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.form-section__num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink-primary), var(--pink-bright));
+    color: var(--white);
+    display: grid; place-items: center;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+.form-section__hint {
+    color: var(--text-soft);
+    font-size: 0.92rem;
+    margin: -6px 0 18px;
+}
+.optional { color: var(--text-soft); font-weight: 400; font-size: 0.85em; font-family: var(--font-body); }
+.req { color: var(--pink-primary); font-weight: 700; }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+.form__row--span2 { grid-column: span 2; }
+.form__row select,
+.form-section .form__row input,
+.form-section .form__row textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #EFE3E8;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: var(--cream);
+    color: var(--text-dark);
+    transition: border-color .2s, background .2s;
+}
+.form__row select:focus,
+.form-section .form__row input:focus,
+.form-section .form__row textarea:focus {
+    outline: none;
+    border-color: var(--pink-primary);
+    background: var(--white);
+}
+.form__row select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23E91E63' d='M6 8L0 0h12z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 38px;
+}
+
+/* ===== Pain range slider ===== */
+.range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--teal), #FFC75F, var(--pink-primary));
+    outline: none;
+    padding: 0 !important;
+    border: none !important;
+}
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--pink-primary);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: transform .15s;
+}
+.range::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.range::-moz-range-thumb {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--pink-primary);
+    cursor: pointer;
+}
+.range__labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    margin-top: 8px;
+}
+.pain-value {
+    display: inline-block;
+    padding: 2px 12px;
+    background: var(--pink-mist);
+    color: var(--pink-deep);
+    border-radius: 999px;
+    font-weight: 700;
+    margin-left: 4px;
+}
+
+/* ===== Needs grid (checkbox cards) ===== */
+.needs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+.needs-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--cream);
+    border: 1.5px solid #EFE3E8;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all .2s;
+    font-size: 0.95rem;
+}
+.needs-card:hover { border-color: var(--pink-primary); background: var(--pink-mist); }
+.needs-card input[type="checkbox"] {
+    width: 18px; height: 18px;
+    accent-color: var(--pink-primary);
+    cursor: pointer;
+    margin: 0;
+}
+.needs-card:has(input:checked) {
+    background: linear-gradient(135deg, var(--pink-mist), var(--pink-soft));
+    border-color: var(--pink-primary);
+    font-weight: 600;
+    color: var(--pink-deep);
+}
+.form__row--others { grid-column: span 2; margin-top: 14px; }
+
+/* ===== File inputs ===== */
+.file-input {
+    padding: 14px !important;
+    background: var(--cream) !important;
+    cursor: pointer;
+    font-size: 0.9rem !important;
+}
+.file-input::file-selector-button {
+    padding: 8px 16px;
+    margin-right: 14px;
+    border: none;
+    border-radius: 8px;
+    background: var(--pink-primary);
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s;
+}
+.file-input::file-selector-button:hover { background: var(--pink-deep); }
+.file-size-info {
+    margin: 14px 0 0;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    text-align: right;
+}
+.file-size-info.is-warning { color: #D32F2F; font-weight: 600; }
+
+/* ===== Consent ===== */
+.form-section--consent { padding-bottom: 8px; }
+.consent-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    line-height: 1.55;
+}
+.consent-row input[type="checkbox"] {
+    width: 20px; height: 20px;
+    accent-color: var(--pink-primary);
+    cursor: pointer;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+.privacy-note {
+    background: var(--cream);
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    margin: 14px 0 0;
+    line-height: 1.6;
+}
+.privacy-note a { color: var(--pink-primary); font-weight: 600; }
+
+.register-form__submit {
+    margin-top: 28px;
+    font-size: 1.05rem;
+    padding: 16px 32px;
+}
+.register-form__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ===== Success state ===== */
+.register-success {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, var(--pink-mist), var(--cream));
+    padding: 64px 48px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    animation: fadeUp .6s ease both;
+}
+.register-success__icon {
+    width: 72px; height: 72px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--pink-primary);
+    font-size: 2.4rem;
+    display: grid; place-items: center;
+    box-shadow: var(--shadow-md);
+}
+.register-success h3 {
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+    color: var(--text-dark);
+}
+.register-success p { color: var(--text-soft); margin-bottom: 22px; }
+
+/* ===== Register-form responsive ===== */
+@media (max-width: 720px) {
+    .register-form { padding: 32px 22px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form__row--span2 { grid-column: span 1; }
+    .needs-grid { grid-template-columns: 1fr; }
+    .form__row--others { grid-column: span 1; }
+}
+
+/* ============================================================
    FOOTER
 ============================================================ */
 .footer {

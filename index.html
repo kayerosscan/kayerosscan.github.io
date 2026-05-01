@@ -38,7 +38,7 @@
                 <li><a href="#founder">Founder</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#testimonials">Stories</a></li>
+                <li><a href="#register">Register</a></li>
                 <li><a href="#volunteer">Volunteer</a></li>
                 <li><a href="#donate">Donate</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -110,6 +110,7 @@
                 </a>
             </div>
             <p class="hero__note">Available across India · No appointments needed</p>
+            <a href="#register" class="hero__register-link">Or register a patient online →</a>
         </div>
 
         <div class="hero__scroll-cue" aria-hidden="true">
@@ -280,6 +281,220 @@
                     <p>"They didn't just give us information — they gave us courage. I will be grateful to this Foundation for the rest of my life."</p>
                     <footer>— Caregiver, Ghaziabad</footer>
                 </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== REGISTER PATIENT ========== -->
+    <section class="section section--register" id="register">
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <span class="section__eyebrow">Patient Registration</span>
+                <h2 class="section__title">Tell us about the patient.</h2>
+                <p class="section__subtitle">Share as much or as little as you can. Our team will reach out within 24 hours to begin support — completely free of cost.</p>
+            </div>
+
+            <form class="register-form" id="registerForm" data-aos="fade-up" novalidate>
+                <!-- Web3Forms hidden fields -->
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+                <input type="hidden" name="subject" value="New Patient Registration — Kayeross Can Foundation" />
+                <input type="hidden" name="from_name" value="Kayeross Can Website" />
+                <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+                <!-- ===== Section 1: Patient Demographics ===== -->
+                <fieldset class="form-section">
+                    <legend><span class="form-section__num">1</span> Patient Demographics</legend>
+                    <div class="form-grid">
+                        <div class="form__row form__row--span2">
+                            <label for="patientName">Patient's full name <span class="req">*</span></label>
+                            <input type="text" id="patientName" name="patient_name" required />
+                        </div>
+                        <div class="form__row">
+                            <label for="patientDob">Date of birth / Age <span class="req">*</span></label>
+                            <input type="text" id="patientDob" name="patient_dob_age" placeholder="DD-MM-YYYY or e.g. 64 years" required />
+                        </div>
+                        <div class="form__row">
+                            <label for="patientGender">Gender <span class="req">*</span></label>
+                            <select id="patientGender" name="patient_gender" required>
+                                <option value="">Select…</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                                <option>Prefer not to say</option>
+                            </select>
+                        </div>
+                        <div class="form__row">
+                            <label for="patientPhone">Patient phone (if available)</label>
+                            <input type="tel" id="patientPhone" name="patient_phone" />
+                        </div>
+                        <div class="form__row form__row--span2">
+                            <label for="patientAddress">Full address <span class="req">*</span></label>
+                            <input type="text" id="patientAddress" name="patient_address" placeholder="Street, area" required />
+                        </div>
+                        <div class="form__row">
+                            <label for="patientCity">City <span class="req">*</span></label>
+                            <input type="text" id="patientCity" name="patient_city" required />
+                        </div>
+                        <div class="form__row">
+                            <label for="patientState">State <span class="req">*</span></label>
+                            <input type="text" id="patientState" name="patient_state" required />
+                        </div>
+                        <div class="form__row">
+                            <label for="patientPincode">Pincode <span class="req">*</span></label>
+                            <input type="text" id="patientPincode" name="patient_pincode" inputmode="numeric" pattern="[0-9]{6}" required />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ===== Section 2: Person Filling This Form ===== -->
+                <fieldset class="form-section">
+                    <legend><span class="form-section__num">2</span> Person filling this form</legend>
+                    <div class="form-grid">
+                        <div class="form__row">
+                            <label for="contactName">Your name <span class="req">*</span></label>
+                            <input type="text" id="contactName" name="contact_name" required />
+                        </div>
+                        <div class="form__row">
+                            <label for="contactRelation">Relationship to patient</label>
+                            <input type="text" id="contactRelation" name="contact_relation" placeholder="e.g. son, daughter, spouse, self" />
+                        </div>
+                        <div class="form__row">
+                            <label for="contactPhone">Your phone <span class="req">*</span></label>
+                            <input type="tel" id="contactPhone" name="contact_phone" required />
+                        </div>
+                        <div class="form__row">
+                            <label for="contactEmail">Your email <span class="req">*</span></label>
+                            <input type="email" id="contactEmail" name="contact_email" required />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ===== Section 3: Medical Information ===== -->
+                <fieldset class="form-section">
+                    <legend><span class="form-section__num">3</span> Medical Information</legend>
+                    <div class="form-grid">
+                        <div class="form__row form__row--span2">
+                            <label for="diagnosis">Primary diagnosis <span class="req">*</span></label>
+                            <input type="text" id="diagnosis" name="diagnosis" placeholder="e.g. Stage III breast cancer" required />
+                        </div>
+                        <div class="form__row">
+                            <label for="diagnosisDate">Approximate date of diagnosis</label>
+                            <input type="text" id="diagnosisDate" name="diagnosis_date" placeholder="MM-YYYY" />
+                        </div>
+                        <div class="form__row">
+                            <label for="treatingDoctor">Treating doctor / hospital</label>
+                            <input type="text" id="treatingDoctor" name="treating_doctor" />
+                        </div>
+                        <div class="form__row form__row--span2">
+                            <label for="medications">Current medications</label>
+                            <textarea id="medications" name="medications" rows="3" placeholder="List medicines and dosages, if known"></textarea>
+                        </div>
+                        <div class="form__row">
+                            <label for="allergies">Known allergies</label>
+                            <textarea id="allergies" name="allergies" rows="2"></textarea>
+                        </div>
+                        <div class="form__row">
+                            <label for="otherConditions">Other medical conditions</label>
+                            <textarea id="otherConditions" name="other_conditions" rows="2" placeholder="e.g. diabetes, hypertension"></textarea>
+                        </div>
+                        <div class="form__row form__row--span2">
+                            <label for="painLevel">Current pain level: <span id="painLevelValue" class="pain-value">5</span> / 10</label>
+                            <input type="range" id="painLevel" name="pain_level" min="0" max="10" value="5" class="range" />
+                            <div class="range__labels"><span>0 · No pain</span><span>10 · Worst possible</span></div>
+                        </div>
+                        <div class="form__row form__row--span2">
+                            <label for="mobility">Mobility status</label>
+                            <select id="mobility" name="mobility">
+                                <option value="">Select…</option>
+                                <option>Ambulatory (walks independently)</option>
+                                <option>Needs assistance</option>
+                                <option>Wheelchair</option>
+                                <option>Bedridden</option>
+                            </select>
+                        </div>
+                        <div class="form__row form__row--span2">
+                            <label for="medicalHistory">Brief medical history</label>
+                            <textarea id="medicalHistory" name="medical_history" rows="4" placeholder="Past treatments, surgeries, hospitalisations, family history…"></textarea>
+                        </div>
+                        <div class="form__row form__row--span2">
+                            <label for="specialNeeds">Special needs or requirements</label>
+                            <textarea id="specialNeeds" name="special_needs" rows="3"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- ===== Section 4: What support do you need ===== -->
+                <fieldset class="form-section">
+                    <legend><span class="form-section__num">4</span> What support do you need from us?</legend>
+                    <p class="form-section__hint">Tick all that apply. We will tailor our response to your needs.</p>
+                    <div class="needs-grid">
+                        <label class="needs-card"><input type="checkbox" name="needs[]" value="Finding the right doctor" /><span>Finding the right doctor</span></label>
+                        <label class="needs-card"><input type="checkbox" name="needs[]" value="Reconfirming the treatment" /><span>Reconfirming the treatment</span></label>
+                        <label class="needs-card"><input type="checkbox" name="needs[]" value="Finding best place for treatment" /><span>Finding best place for treatment</span></label>
+                        <label class="needs-card"><input type="checkbox" name="needs[]" value="Emotional support" /><span>Emotional support</span></label>
+                        <label class="needs-card"><input type="checkbox" name="needs[]" value="Financial support" /><span>Financial support</span></label>
+                        <label class="needs-card"><input type="checkbox" name="needs[]" value="Pharmacological support" /><span>Pharmacological support</span></label>
+                        <label class="needs-card"><input type="checkbox" name="needs[]" value="Living with cancer counselling" /><span>Living with cancer counselling</span></label>
+                        <label class="needs-card"><input type="checkbox" name="needs[]" value="Approach to life" /><span>Approach to life</span></label>
+                        <label class="needs-card"><input type="checkbox" name="needs[]" value="Expense calculation and planning" /><span>Expense calculation &amp; planning</span></label>
+                        <label class="needs-card"><input type="checkbox" name="needs[]" value="Others" id="needsOthersToggle" /><span>Something else</span></label>
+                    </div>
+                    <div class="form__row form__row--others" id="needsOthersWrap" hidden>
+                        <label for="needsOthers">Please describe</label>
+                        <textarea id="needsOthers" name="needs_others" rows="3"></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- ===== Section 5: Upload Documents ===== -->
+                <fieldset class="form-section">
+                    <legend><span class="form-section__num">5</span> Upload documents <span class="optional">(optional)</span></legend>
+                    <p class="form-section__hint">Sharing reports helps us guide you better. <strong>Total upload size must be under 10 MB.</strong></p>
+                    <div class="form-grid">
+                        <div class="form__row form__row--span2">
+                            <label for="medicalReports">Medical reports</label>
+                            <input type="file" id="medicalReports" name="medical_reports" multiple accept="image/*,.pdf,.doc,.docx" class="file-input" />
+                        </div>
+                        <div class="form__row form__row--span2">
+                            <label for="consultationPapers">Consultation papers</label>
+                            <input type="file" id="consultationPapers" name="consultation_papers" multiple accept="image/*,.pdf,.doc,.docx" class="file-input" />
+                        </div>
+                        <div class="form__row form__row--span2">
+                            <label for="prescriptions">Prescriptions</label>
+                            <input type="file" id="prescriptions" name="prescriptions" multiple accept="image/*,.pdf,.doc,.docx" class="file-input" />
+                        </div>
+                    </div>
+                    <p class="file-size-info" id="fileSizeInfo">Total selected: 0 MB</p>
+                </fieldset>
+
+                <!-- ===== Section 6: Consent & Submit ===== -->
+                <fieldset class="form-section form-section--consent">
+                    <legend><span class="form-section__num">6</span> Consent</legend>
+                    <label class="consent-row">
+                        <input type="checkbox" name="consent_accuracy" required />
+                        <span>I confirm the information above is accurate to the best of my knowledge. <span class="req">*</span></span>
+                    </label>
+                    <label class="consent-row">
+                        <input type="checkbox" name="consent_use" required />
+                        <span>I consent to Kayeross Can Foundation using this information solely for the purpose of providing palliative care guidance. <span class="req">*</span></span>
+                    </label>
+                    <p class="privacy-note">
+                        Your information is shared with our team and the trusted form-handling service we use to receive submissions. We do not sell or share your data with third parties. Reach us at <a href="mailto:kayerosscan@gmail.com">kayerosscan@gmail.com</a> to request deletion at any time.
+                    </p>
+                </fieldset>
+
+                <button type="submit" class="btn btn--primary btn--full register-form__submit">Submit Registration</button>
+                <p class="form__feedback" id="registerFeedback" aria-live="polite"></p>
+            </form>
+
+            <!-- Hidden until submission succeeds -->
+            <div class="register-success" id="registerSuccess" hidden>
+                <div class="register-success__icon">♥</div>
+                <h3>Thank you — your registration is received.</h3>
+                <p>Our team will personally reach out within <strong>24 hours</strong> to begin support. If your situation is urgent, please call us right now:</p>
+                <div class="hero__ctas" style="justify-content:center;">
+                    <a href="tel:+919971117952" class="btn btn--primary">Call: 9971117952</a>
+                    <a href="tel:+919896022206" class="btn btn--secondary">Call: 9896022206</a>
+                </div>
             </div>
         </div>
     </section>

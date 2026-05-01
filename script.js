@@ -62,6 +62,96 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
     });
 
+    // ---- Patient registration form ----
+    const regForm = document.getElementById('registerForm');
+    if (regForm) {
+        // Pain level live value
+        const painSlider = document.getElementById('painLevel');
+        const painValue = document.getElementById('painLevelValue');
+        painSlider.addEventListener('input', () => { painValue.textContent = painSlider.value; });
+
+        // "Others" textarea toggle
+        const othersToggle = document.getElementById('needsOthersToggle');
+        const othersWrap = document.getElementById('needsOthersWrap');
+        othersToggle.addEventListener('change', () => {
+            othersWrap.hidden = !othersToggle.checked;
+            if (othersToggle.checked) document.getElementById('needsOthers').focus();
+        });
+
+        // File size live check (10MB limit)
+        const MAX_BYTES = 10 * 1024 * 1024;
+        const fileInputs = regForm.querySelectorAll('.file-input');
+        const sizeInfo = document.getElementById('fileSizeInfo');
+        const updateSize = () => {
+            let total = 0;
+            fileInputs.forEach(inp => {
+                Array.from(inp.files).forEach(f => total += f.size);
+            });
+            const mb = (total / (1024 * 1024)).toFixed(2);
+            sizeInfo.textContent = `Total selected: ${mb} MB`;
+            sizeInfo.classList.toggle('is-warning', total > MAX_BYTES);
+        };
+        fileInputs.forEach(inp => inp.addEventListener('change', updateSize));
+
+        // Submit
+        const feedback = document.getElementById('registerFeedback');
+        const submitBtn = regForm.querySelector('.register-form__submit');
+        const successPanel = document.getElementById('registerSuccess');
+
+        regForm.addEventListener('submit', async e => {
+            e.preventDefault();
+            feedback.textContent = '';
+            feedback.style.color = '';
+
+            // Required-field check
+            const required = regForm.querySelectorAll('[required]');
+            for (const f of required) {
+                if (!f.value || (f.type === 'checkbox' && !f.checked)) {
+                    feedback.textContent = 'Please fill in all required fields and tick both consent boxes.';
+                    feedback.style.color = '#D32F2F';
+                    f.focus();
+                    return;
+                }
+            }
+
+            // File size guard
+            let total = 0;
+            fileInputs.forEach(inp => Array.from(inp.files).forEach(f => total += f.size));
+            if (total > MAX_BYTES) {
+                feedback.textContent = 'Total file size exceeds 10 MB. Please reduce attachments and try again.';
+                feedback.style.color = '#D32F2F';
+                return;
+            }
+
+            // Submit to Web3Forms
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting…';
+            feedback.textContent = '';
+
+            try {
+                const formData = new FormData(regForm);
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const json = await res.json().catch(() => ({}));
+
+                if (res.ok && json.success) {
+                    regForm.hidden = true;
+                    successPanel.hidden = false;
+                    successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error(json.message || `Submission failed (HTTP ${res.status})`);
+                }
+            } catch (err) {
+                feedback.textContent = `Sorry — we couldn't submit your registration. ${err.message}. Please call us directly at 9971117952.`;
+                feedback.style.color = '#D32F2F';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Registration';
+            }
+        });
+    }
+
     // ---- Subtle parallax for hero parrots ----
     const parrots = document.querySelectorAll('.parrot');
     if (parrots.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
