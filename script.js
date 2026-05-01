@@ -282,8 +282,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         sushil: {
-            name: 'Dr. Sushil Garg',
-            role: 'Clinical Consultant',
+            name: 'Dr (Sqn Ldr) Sushil Garg',
+            role: 'Clinical Head',
             initials: 'SG',
             image: 'Names/Sushil.jpg',
             bio: [
