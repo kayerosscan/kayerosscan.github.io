@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kayeross Can Foundation — Compassionate palliative care support, just a phone call away. Free of cost." />
+    <title>Kayeross Can Foundation — Compassionate Palliative Care</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ========== NAV ========== -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner container">
+            <a href="#hero" class="nav__brand" aria-label="Kayeross Can Foundation home">
+                <svg class="nav__brand-icon" viewBox="0 0 60 60" aria-hidden="true">
+                    <ellipse cx="30" cy="35" rx="14" ry="17" fill="#FF69B4"/>
+                    <circle cx="36" cy="22" r="11" fill="#FF85C1"/>
+                    <path d="M 44 23 L 53 25 L 44 29 Z" fill="#FFA94D"/>
+                    <circle cx="38" cy="20" r="2" fill="#2C2C2C"/>
+                    <path d="M 32 12 Q 35 5 40 8 Q 38 14 35 16 Z" fill="#E91E63"/>
+                </svg>
+                <span class="nav__brand-text">Kayeross Can</span>
+            </a>
+
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav__links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#founder">Founder</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#testimonials">Stories</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="tel:+919971117952" class="nav__cta">Call Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <header class="hero" id="hero">
+        <div class="hero__bg-blob hero__bg-blob--1"></div>
+        <div class="hero__bg-blob hero__bg-blob--2"></div>
+
+        <!-- Floating parrots -->
+        <svg class="parrot parrot--1" viewBox="0 0 200 200" aria-hidden="true">
+            <path d="M 50 130 Q 30 150 25 185 L 45 175 Q 55 155 65 145 Z" fill="#FFB6C1"/>
+            <ellipse cx="100" cy="120" rx="45" ry="55" fill="#FF69B4"/>
+            <ellipse cx="100" cy="135" rx="28" ry="38" fill="#FFD1DC"/>
+            <path d="M 80 100 Q 70 130 80 160 Q 100 140 92 110 Z" fill="#E91E63"/>
+            <circle cx="120" cy="70" r="35" fill="#FF85C1"/>
+            <path d="M 150 75 L 172 80 L 150 92 Z" fill="#FFA94D"/>
+            <circle cx="130" cy="65" r="5" fill="#2C2C2C"/>
+            <circle cx="131" cy="63" r="2" fill="white"/>
+            <path d="M 110 38 Q 115 22 128 28 Q 122 40 116 45 Z" fill="#E91E63"/>
+            <ellipse cx="100" cy="180" rx="8" ry="6" fill="#FFA94D"/>
+        </svg>
+
+        <svg class="parrot parrot--2" viewBox="0 0 200 200" aria-hidden="true">
+            <path d="M 50 130 Q 30 150 25 185 L 45 175 Q 55 155 65 145 Z" fill="#FFC0CB"/>
+            <ellipse cx="100" cy="120" rx="42" ry="52" fill="#FF85C1"/>
+            <ellipse cx="100" cy="135" rx="26" ry="36" fill="#FFE5EC"/>
+            <path d="M 80 100 Q 70 130 80 160 Q 100 140 92 110 Z" fill="#E91E63"/>
+            <circle cx="120" cy="70" r="33" fill="#FF99CC"/>
+            <path d="M 148 75 L 168 80 L 148 90 Z" fill="#FFA94D"/>
+            <circle cx="128" cy="65" r="4.5" fill="#2C2C2C"/>
+            <circle cx="129" cy="63" r="2" fill="white"/>
+            <path d="M 110 40 Q 115 25 126 30 Q 121 41 115 45 Z" fill="#E91E63"/>
+        </svg>
+
+        <svg class="parrot parrot--3" viewBox="0 0 200 200" aria-hidden="true">
+            <path d="M 50 130 Q 30 150 25 185 L 45 175 Q 55 155 65 145 Z" fill="#FFB6C1"/>
+            <ellipse cx="100" cy="120" rx="40" ry="50" fill="#FF69B4"/>
+            <ellipse cx="100" cy="135" rx="24" ry="34" fill="#FFD1DC"/>
+            <path d="M 80 100 Q 70 130 80 160 Q 100 140 92 110 Z" fill="#C2185B"/>
+            <circle cx="120" cy="70" r="32" fill="#FF85C1"/>
+            <path d="M 148 75 L 168 80 L 148 90 Z" fill="#FFA94D"/>
+            <circle cx="128" cy="65" r="4.5" fill="#2C2C2C"/>
+            <circle cx="129" cy="63" r="2" fill="white"/>
+            <path d="M 110 40 Q 115 24 126 30 Q 121 41 115 45 Z" fill="#FF1493"/>
+        </svg>
+
+        <div class="container hero__content">
+            <span class="hero__badge">100% Free of Cost · Always</span>
+            <h1 class="hero__title">
+                Compassionate Palliative care,<br />
+                <span class="hero__title-accent">one phone call away.</span>
+            </h1>
+            <p class="hero__subtitle">
+                Kayeross Can Foundation walks beside patients and families through the hardest moments — with kindness, knowledge, and unwavering care. Always free. Always human.
+            </p>
+            <div class="hero__ctas">
+                <a href="tel:+919971117952" class="btn btn--primary">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg>
+                    Call: 9971117952
+                </a>
+                <a href="tel:+919896022206" class="btn btn--secondary">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg>
+                    Call: 9896022206
+                </a>
+            </div>
+            <p class="hero__note">Available across India · No appointments needed</p>
+        </div>
+
+        <div class="hero__scroll-cue" aria-hidden="true">
+            <span></span>
+        </div>
+    </header>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="section section--about" id="about">
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <span class="section__eyebrow">About Us</span>
+                <h2 class="section__title">Care that begins with a conversation.</h2>
+            </div>
+
+            <div class="about__grid">
+                <div class="about__text" data-aos="fade-right">
+                    <p>
+                        Kayeross Can Foundation is a not-for-profit initiative dedicated to providing compassionate palliative care support to patients and families across India. Whether it's emotional comfort, guidance through difficult medical decisions, or simply a kind voice on the other end of the line — we are here.
+                    </p>
+                    <p>
+                        Palliative care is more than medicine. It is dignity, comfort, and human presence in life's most fragile moments. We believe no one should have to walk that path alone — and never because they could not afford to.
+                    </p>
+                </div>
+                <div class="about__values" data-aos="fade-left">
+                    <div class="value-card">
+                        <div class="value-card__icon">♡</div>
+                        <h3>Free Forever</h3>
+                        <p>Every call, every conversation, every act of support — at no cost.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-card__icon">☎</div>
+                        <h3>By Phone, Anytime</h3>
+                        <p>Just pick up the phone. No paperwork, no waiting rooms.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-card__icon">✦</div>
+                        <h3>Patient-First</h3>
+                        <p>Whatever the patient needs — that is what we do, in any way we can.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOUNDER ========== -->
+    <section class="section section--founder" id="founder">
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <span class="section__eyebrow">Leadership</span>
+                <h2 class="section__title">Meet our Founder</h2>
+            </div>
+
+            <div class="founder__card" data-aos="zoom-in">
+                <div class="founder__photo">
+                    <div class="founder__photo-placeholder">
+                        <span>KP</span>
+                    </div>
+                    <svg class="founder__deco" viewBox="0 0 100 100" aria-hidden="true">
+                        <circle cx="50" cy="50" r="48" fill="none" stroke="#E91E63" stroke-width="1" stroke-dasharray="4 6"/>
+                    </svg>
+                </div>
+                <div class="founder__bio">
+                    <h3 class="founder__name">Dr. Kritie Pasrichaa</h3>
+                    <p class="founder__role">Chairman &amp; Founder</p>
+                    <p>
+                        Dr. Kritie Pasrichaa founded Kayeross Can Foundation with a singular vision — that no patient should walk the palliative care journey alone, and no family should be turned away for lack of resources.
+                    </p>
+                    <p>
+                        With years of experience in patient care, Dr. Pasrichaa leads our team with compassion, expertise, and an unwavering commitment to dignity for every life we touch. Under her guidance, the Foundation has become a trusted voice for those navigating the most difficult chapters of life.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SERVICES ========== -->
+    <section class="section section--services" id="services">
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <span class="section__eyebrow">How We Help</span>
+                <h2 class="section__title">Whatever the patient needs — that is what we do.</h2>
+            </div>
+
+            <div class="services__grid">
+                <article class="service-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-card__icon">♥</div>
+                    <h3>Emotional Support</h3>
+                    <p>A calm, listening ear when the world feels overwhelming. Sometimes that's all that is needed.</p>
+                </article>
+                <article class="service-card" data-aos="fade-up" data-aos-delay="80">
+                    <div class="service-card__icon">⚕</div>
+                    <h3>Medical Guidance</h3>
+                    <p>Help understanding diagnoses, treatment options, and what questions to ask the doctor.</p>
+                </article>
+                <article class="service-card" data-aos="fade-up" data-aos-delay="160">
+                    <div class="service-card__icon">⚘</div>
+                    <h3>Family Counselling</h3>
+                    <p>Support for caregivers and loved ones — because you are walking this journey too.</p>
+                </article>
+                <article class="service-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-card__icon">⚜</div>
+                    <h3>Pain Management Info</h3>
+                    <p>Guidance on comfort, pain relief, and improving day-to-day quality of life.</p>
+                </article>
+                <article class="service-card" data-aos="fade-up" data-aos-delay="80">
+                    <div class="service-card__icon">✿</div>
+                    <h3>End-of-Life Support</h3>
+                    <p>Compassionate companionship and clarity in life's most fragile, sacred moments.</p>
+                </article>
+                <article class="service-card" data-aos="fade-up" data-aos-delay="160">
+                    <div class="service-card__icon">⌂</div>
+                    <h3>Home Care Advice</h3>
+                    <p>Practical, gentle guidance for caring for a loved one at home, with confidence.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section class="section section--how" id="how-it-works">
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <span class="section__eyebrow">How It Works</span>
+                <h2 class="section__title">Three simple steps. No barriers.</h2>
+            </div>
+
+            <div class="steps">
+                <div class="step" data-aos="fade-up" data-aos-delay="0">
+                    <div class="step__number">01</div>
+                    <h3>Call Us</h3>
+                    <p>Pick up the phone and dial. No appointments. No fees. No judgment.</p>
+                </div>
+                <div class="step__connector" aria-hidden="true"></div>
+                <div class="step" data-aos="fade-up" data-aos-delay="120">
+                    <div class="step__number">02</div>
+                    <h3>Share Your Needs</h3>
+                    <p>Tell us about the patient and the situation. Take your time — we listen first.</p>
+                </div>
+                <div class="step__connector" aria-hidden="true"></div>
+                <div class="step" data-aos="fade-up" data-aos-delay="240">
+                    <div class="step__number">03</div>
+                    <h3>We Help</h3>
+                    <p>Our trained team responds with whatever support is needed — for as long as it's needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section class="section section--testimonials" id="testimonials">
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <span class="section__eyebrow">Stories</span>
+                <h2 class="section__title">Voices we've had the privilege to support.</h2>
+            </div>
+
+            <div class="testimonials__grid">
+                <blockquote class="testimonial" data-aos="fade-up" data-aos-delay="0">
+                    <p>"When my father was diagnosed, I felt completely lost. Kayeross Can held our hand through every step. Their kindness gave us strength."</p>
+                    <footer>— Family member, Delhi</footer>
+                </blockquote>
+                <blockquote class="testimonial" data-aos="fade-up" data-aos-delay="120">
+                    <p>"Just hearing a calm, knowledgeable voice on the other end made all the difference. They didn't rush us. They didn't charge us. They simply cared."</p>
+                    <footer>— Patient's daughter, Punjab</footer>
+                </blockquote>
+                <blockquote class="testimonial" data-aos="fade-up" data-aos-delay="240">
+                    <p>"They didn't just give us information — they gave us courage. I will be grateful to this Foundation for the rest of my life."</p>
+                    <footer>— Caregiver, Ghaziabad</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== VOLUNTEER ========== -->
+    <section class="section section--volunteer" id="volunteer">
+        <div class="container volunteer__container">
+            <div class="volunteer__text" data-aos="fade-right">
+                <span class="section__eyebrow">Get Involved</span>
+                <h2 class="section__title">Become a volunteer.</h2>
+                <p>
+                    Whether you are a doctor, a counsellor, a nurse, or simply someone with time and a heart to give — we would love to hear from you. Every voice on our line is another patient who feels less alone.
+                </p>
+                <ul class="volunteer__list">
+                    <li>Doctors &amp; medical professionals</li>
+                    <li>Counsellors &amp; psychologists</li>
+                    <li>Trained caregivers</li>
+                    <li>Compassionate listeners</li>
+                </ul>
+            </div>
+
+            <form class="volunteer__form" id="volunteerForm" data-aos="fade-left" novalidate>
+                <h3>Reach out to us</h3>
+                <div class="form__row">
+                    <label for="vName">Your Name</label>
+                    <input type="text" id="vName" name="name" required />
+                </div>
+                <div class="form__row">
+                    <label for="vPhone">Phone Number</label>
+                    <input type="tel" id="vPhone" name="phone" required />
+                </div>
+                <div class="form__row">
+                    <label for="vMessage">How would you like to help?</label>
+                    <textarea id="vMessage" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+                <p class="form__feedback" id="formFeedback" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ========== DONATE ========== -->
+    <section class="section section--donate" id="donate">
+        <div class="container donate__container" data-aos="zoom-in">
+            <span class="section__eyebrow">Support Our Mission</span>
+            <h2 class="section__title">Every contribution reaches another patient.</h2>
+            <p class="donate__text">
+                We rely on the generosity of people who believe in dignity and compassion. Your support helps us keep every call free, every patient heard, every family supported.
+            </p>
+            <div class="donate__placeholder">
+                <p><strong>Donation details coming soon.</strong></p>
+                <p>For now, please reach out to us directly using the contact details below — we will personally guide you through how to contribute.</p>
+            </div>
+            <a href="#contact" class="btn btn--primary">Contact Us to Donate</a>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="section section--contact" id="contact">
+        <div class="container">
+            <div class="section__header" data-aos="fade-up">
+                <span class="section__eyebrow">Reach Us</span>
+                <h2 class="section__title">We're always just a call away.</h2>
+            </div>
+
+            <div class="contact__grid">
+                <div class="contact-card contact-card--primary" data-aos="fade-up">
+                    <h3>Call us</h3>
+                    <a href="tel:+919971117952" class="contact-card__phone">+91 99711 17952</a>
+                    <a href="tel:+919896022206" class="contact-card__phone">+91 98960 22206</a>
+                    <p class="contact-card__note">Available across India</p>
+                </div>
+
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="80">
+                    <h3>Email</h3>
+                    <a href="mailto:kayerosscan@gmail.com" class="contact-card__line contact-card__email">kayerosscan@gmail.com</a>
+                    <p class="contact-card__note">We reply to every message</p>
+                </div>
+
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="160">
+                    <h3>Headquarters</h3>
+                    <p class="contact-card__line">House No. 174, Sector 3A,<br />Rachna Vaishali, Ghaziabad,<br />Uttar Pradesh — 201010, India</p>
+                </div>
+
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="240">
+                    <h3>Operations</h3>
+                    <p class="contact-card__line">Bhatinda,<br />Punjab, India</p>
+                    <p class="contact-card__note">Where the work happens</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <svg class="nav__brand-icon" viewBox="0 0 60 60" aria-hidden="true">
+                    <ellipse cx="30" cy="35" rx="14" ry="17" fill="#FF69B4"/>
+                    <circle cx="36" cy="22" r="11" fill="#FF85C1"/>
+                    <path d="M 44 23 L 53 25 L 44 29 Z" fill="#FFA94D"/>
+                    <circle cx="38" cy="20" r="2" fill="#2C2C2C"/>
+                    <path d="M 32 12 Q 35 5 40 8 Q 38 14 35 16 Z" fill="#E91E63"/>
+                </svg>
+                <span>Kayeross Can Foundation</span>
+            </div>
+            <p class="footer__tag">Compassionate palliative care · Always free · Always human.</p>
+            <p class="footer__copy">&copy; 2026 Kayeross Can Foundation. A registered not-for-profit initiative.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
