@@ -229,6 +229,7 @@ p { margin: 0 0 1em; color: var(--text-dark); }
 .section { padding: 110px 0; position: relative; }
 .section--about { background: var(--white); }
 .section--founder { background: linear-gradient(180deg, var(--white), var(--pink-mist)); }
+.section--team { background: linear-gradient(180deg, var(--pink-mist), var(--cream)); }
 .section--services { background: var(--cream); }
 .section--how { background: var(--white); }
 .section--testimonials { background: var(--cream-warm); }
@@ -343,6 +344,89 @@ p { margin: 0 0 1em; color: var(--text-dark); }
 .founder__name { font-size: 1.9rem; color: var(--text-dark); margin-bottom: 4px; }
 .founder__role { color: var(--pink-primary); font-weight: 600; margin-bottom: 18px; letter-spacing: 0.02em; }
 .founder__bio p { color: var(--text-soft); }
+
+/* ============================================================
+   TEAM
+============================================================ */
+.team__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+.team-card {
+    background: var(--white);
+    padding: 32px 20px 26px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: transform .3s, box-shadow .3s;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pink-primary), var(--pink-bright));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+}
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+.team-card:hover::before { transform: scaleX(1); }
+
+.team-card__avatar {
+    width: 92px; height: 92px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink-bright), var(--pink-deep));
+    color: var(--white);
+    display: grid; place-items: center;
+    font-family: var(--font-display);
+    font-size: 1.6rem; font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.18);
+    transition: transform .3s;
+}
+.team-card:hover .team-card__avatar { transform: scale(1.06) rotate(-3deg); }
+
+.team-card:nth-child(4n+2) .team-card__avatar { background: linear-gradient(135deg, #FFA94D, var(--pink-primary)); }
+.team-card:nth-child(4n+3) .team-card__avatar { background: linear-gradient(135deg, var(--pink-soft), var(--pink-deep)); color: var(--white); }
+.team-card:nth-child(4n+4) .team-card__avatar { background: linear-gradient(135deg, #FFD1DC, #FF85C1); color: var(--pink-deep); }
+
+.team-card__name {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--text-dark);
+    margin: 0 0 6px;
+    line-height: 1.3;
+}
+.team-card__role {
+    color: var(--pink-primary);
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 960px) {
+    .team__grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+    .team__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .team-card { padding: 26px 16px 22px; }
+    .team-card__avatar { width: 78px; height: 78px; font-size: 1.4rem; }
+}
+@media (max-width: 420px) {
+    .team__grid { grid-template-columns: 1fr; }
+}
 
 /* ============================================================
    SERVICES
