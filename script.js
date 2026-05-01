@@ -246,6 +246,188 @@ document.addEventListener('DOMContentLoaded', () => {
         showStep(0);
     }
 
+    // ---- Team member side panel ----
+    const TEAM_BIOS = {
+        kritie: {
+            name: 'Dr. Kritie Pasrichaa',
+            role: 'Founder & Chairman',
+            initials: 'KP',
+            image: 'assets/team/kritie.jpg',
+            bio: [
+                "Dr. Kritie founded Kayeross Can Foundation after years of walking alongside families through cancer, chronic illness, and end-of-life journeys — and seeing again and again that what people needed most was not money or paperwork, but a kind, knowledgeable voice they could trust.",
+                "A trained palliative care professional and a fierce advocate for dignity in healthcare, she believes that compassion is medicine in its own right. Under her leadership the Foundation has grown into a quiet but steady presence for families across India who have nowhere else to turn.",
+                "She still personally answers many of the calls that come in, because she believes every patient deserves to be heard — fully, gently, and without rush."
+            ]
+        },
+        ravichandran: {
+            name: 'Dr. N. Ravichandran',
+            role: 'Guide & Mentor',
+            initials: 'NR',
+            bio: [
+                "Dr. Ravichandran is the steady, senior voice the Foundation turns to when the path forward is unclear. With decades of experience in medicine and patient advocacy, he offers strategic guidance, clinical perspective, and a deep moral compass to every part of our work.",
+                "He has long believed that palliative care is the truest test of a healthcare system's humanity, and he mentors our young team with unwavering patience.",
+                "His role is quiet but profound — he asks the hard questions, slows hasty decisions, and reminds everyone that the patient is always the answer."
+            ]
+        },
+        manas: {
+            name: 'Manas Singh',
+            role: 'Co-founder',
+            initials: 'MS',
+            bio: [
+                "Manas co-founded the Foundation alongside Dr. Kritie, drawn to the idea that the most fragile moments of a person's life deserve the most attentive care.",
+                "He brings operational rigour, partnership thinking, and a builder's mindset to a space that often runs on goodwill alone. From mapping out the first call lines to forging relationships with hospitals and volunteers, his fingerprints are on much of how the Foundation actually runs day to day.",
+                "For Manas, this work is deeply personal — and his commitment is to make sure no one is ever turned away."
+            ]
+        },
+        sushil: {
+            name: 'Dr. Sushil Garg',
+            role: 'Clinical Consultant',
+            initials: 'SG',
+            bio: [
+                "Dr. Sushil is the clinical heart of our advisory work. When a family is wrestling with a complex diagnosis or a difficult treatment decision, his measured, compassionate guidance helps cut through the fear and find clarity.",
+                "With years of frontline experience in patient care, he reviews cases that come through our help line and ensures the medical guidance we offer is current, accurate, and genuinely useful — never sterile, always human.",
+                "He believes a good clinician listens twice as long as they speak."
+            ]
+        },
+        vivek: {
+            name: 'Mr. Vivek Chaturvedi',
+            role: 'Content Validator',
+            initials: 'VC',
+            bio: [
+                "Vivek ensures that every piece of medical and educational material we share with families meets a high bar of accuracy and compassion. From explainer notes to outreach copy, nothing reaches a patient or caregiver until it has passed through his careful eye.",
+                "With a background in healthcare communication, he is unwilling to let a single sentence go out that could mislead, alarm, or talk down to a patient.",
+                "His standards are exacting — and that is precisely why families can trust what they read from us."
+            ]
+        },
+        parika: {
+            name: 'Parika Wadhwa',
+            role: 'Operations Head',
+            initials: 'PW',
+            bio: [
+                "Parika keeps the Foundation running. From scheduling volunteer rotations to coordinating responses with doctors, families, and partner organisations, she is the calm centre of an often emotionally heavy operation.",
+                "She believes that compassion at scale only works if the systems behind it work — and she has built quiet, reliable processes that ensure no caller is forgotten and no need is left unanswered.",
+                "If something needs doing, Parika has usually already done it."
+            ]
+        },
+        mehak: {
+            name: 'Mehak Preet Singh',
+            role: 'Treasurer',
+            initials: 'MPS',
+            bio: [
+                "Mehak is the steward of the Foundation's finances. Every rupee we receive — whether from a donor or a grant — is accounted for, audited, and applied directly to patient support, and that discipline is hers.",
+                "She believes that financial transparency is not just compliance — it is a moral covenant with every donor and every family we serve.",
+                "Her care, precision, and uncompromising integrity are the reason every contribution truly reaches another patient."
+            ]
+        },
+        navdeep: {
+            name: 'Navdeep Singh',
+            role: 'Marketing Head',
+            initials: 'NS',
+            bio: [
+                "Navdeep leads how the Foundation's voice reaches the people who need it most. From awareness campaigns to outreach in underserved regions, his work ensures that someone, somewhere — at the moment they most need help — actually knows we exist.",
+                "He approaches marketing not as advertising but as bridge-building: between a struggling family and a free phone line that can change their week, their month, their last chapter.",
+                "He measures success not in clicks but in calls answered."
+            ]
+        },
+        avdesh: {
+            name: 'Avdesh Sharma',
+            role: 'Chartered Accountant',
+            initials: 'AS',
+            bio: [
+                "Avdesh oversees the Foundation's audit, compliance, and statutory health. As a chartered accountant with a steady hand, he ensures that we operate to the highest standards of financial governance — and that every donor's trust is never taken for granted.",
+                "His work happens behind the scenes, but it is the reason the Foundation can stand tall and accept new partnerships, grants, and goodwill with full transparency.",
+                "He believes that good books are the quiet foundation on which every act of compassion ultimately rests."
+            ]
+        },
+        mayank: {
+            name: 'Mayank Verma',
+            role: 'Engineer & Creative Head',
+            initials: 'MV',
+            bio: [
+                "Mayank shapes both the Foundation's technical backbone and its creative identity — from the website you are reading right now, to the design language, to the systems that route a caller to the right kind of support.",
+                "He believes good engineering for a non-profit is invisible: things that just work, kindly, when someone is having the hardest day of their life.",
+                "His care for craft and detail is matched only by his belief that compassion deserves great design."
+            ]
+        },
+        dipanshu: {
+            name: 'Dipanshu Verma',
+            role: 'Engineer',
+            initials: 'DV',
+            bio: [
+                "Dipanshu helps build and maintain the technology that makes the Foundation responsive and reliable. He works on quietly important things — uptime, data hygiene, integrations — that families never see, but that are the difference between a call answered and a call missed.",
+                "He approaches every line of code with the awareness that on the other side of it is a real person, in a real moment, hoping for help."
+            ]
+        }
+    };
+
+    const teamPanel = document.getElementById('teamPanel');
+    if (teamPanel) {
+        const panelImg = document.getElementById('teamPanelImage');
+        const panelAvatar = document.getElementById('teamPanelAvatar');
+        const panelAvatarSpan = panelAvatar.querySelector('span');
+        const panelName = document.getElementById('teamPanelName');
+        const panelRole = document.getElementById('teamPanelRole');
+        const panelBio = document.getElementById('teamPanelBio');
+        let lastTrigger = null;
+
+        const openTeamPanel = (id, trigger) => {
+            const data = TEAM_BIOS[id];
+            if (!data) return;
+            lastTrigger = trigger || null;
+
+            panelName.textContent = data.name;
+            panelRole.textContent = data.role;
+            panelBio.innerHTML = data.bio.map(p => `<p>${p}</p>`).join('');
+
+            if (data.image) {
+                panelImg.src = data.image;
+                panelImg.alt = data.name;
+                panelImg.hidden = false;
+                panelAvatar.hidden = true;
+            } else {
+                panelImg.removeAttribute('src');
+                panelImg.alt = '';
+                panelImg.hidden = true;
+                panelAvatarSpan.textContent = data.initials || '';
+                panelAvatar.hidden = false;
+            }
+
+            teamPanel.hidden = false;
+            teamPanel.setAttribute('aria-hidden', 'false');
+            // force reflow so transition runs
+            void teamPanel.offsetWidth;
+            teamPanel.classList.add('is-open');
+            document.body.classList.add('team-panel-open');
+
+            setTimeout(() => {
+                teamPanel.querySelector('.team-panel__close')?.focus();
+            }, 120);
+        };
+
+        const closeTeamPanel = () => {
+            teamPanel.classList.remove('is-open');
+            teamPanel.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('team-panel-open');
+            setTimeout(() => {
+                teamPanel.hidden = true;
+                lastTrigger?.focus();
+                lastTrigger = null;
+            }, 380);
+        };
+
+        document.querySelectorAll('.team-card[data-member]').forEach(card => {
+            card.addEventListener('click', () => openTeamPanel(card.dataset.member, card));
+        });
+        teamPanel.querySelectorAll('[data-team-close]').forEach(el => {
+            el.addEventListener('click', closeTeamPanel);
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && teamPanel.classList.contains('is-open')) {
+                closeTeamPanel();
+            }
+        });
+    }
+
     // ---- Subtle parallax for hero parrots ----
     const parrots = document.querySelectorAll('.parrot');
     if (parrots.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

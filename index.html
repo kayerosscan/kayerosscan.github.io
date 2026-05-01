@@ -300,63 +300,80 @@
             </div>
 
             <div class="team__grid">
-                <article class="team-card" data-aos="fade-up" data-aos-delay="0">
+                <button type="button" class="team-card" data-member="kritie" aria-haspopup="dialog" data-aos="fade-up" data-aos-delay="0">
                     <div class="team-card__avatar"><span>KP</span></div>
                     <h3 class="team-card__name">Dr. Kritie Pasrichaa</h3>
                     <p class="team-card__role">Founder &amp; Chairman</p>
-                </article>
-                <article class="team-card" data-aos="fade-up" data-aos-delay="60">
+                </button>
+                <button type="button" class="team-card" data-member="ravichandran" aria-haspopup="dialog" data-aos="fade-up" data-aos-delay="60">
                     <div class="team-card__avatar"><span>NR</span></div>
                     <h3 class="team-card__name">Dr. N. Ravichandran</h3>
                     <p class="team-card__role">Guide &amp; Mentor</p>
-                </article>
-                <article class="team-card" data-aos="fade-up" data-aos-delay="120">
+                </button>
+                <button type="button" class="team-card" data-member="manas" aria-haspopup="dialog" data-aos="fade-up" data-aos-delay="120">
                     <div class="team-card__avatar"><span>MS</span></div>
                     <h3 class="team-card__name">Manas Singh</h3>
                     <p class="team-card__role">Co-founder</p>
-                </article>
-                <article class="team-card" data-aos="fade-up" data-aos-delay="180">
+                </button>
+                <button type="button" class="team-card" data-member="sushil" aria-haspopup="dialog" data-aos="fade-up" data-aos-delay="180">
                     <div class="team-card__avatar"><span>SG</span></div>
                     <h3 class="team-card__name">Dr. Sushil Garg</h3>
                     <p class="team-card__role">Clinical Consultant</p>
-                </article>
-                <article class="team-card" data-aos="fade-up" data-aos-delay="0">
+                </button>
+                <button type="button" class="team-card" data-member="vivek" aria-haspopup="dialog" data-aos="fade-up" data-aos-delay="0">
                     <div class="team-card__avatar"><span>VC</span></div>
                     <h3 class="team-card__name">Mr. Vivek Chaturvedi</h3>
                     <p class="team-card__role">Content Validator</p>
-                </article>
-                <article class="team-card" data-aos="fade-up" data-aos-delay="60">
+                </button>
+                <button type="button" class="team-card" data-member="parika" aria-haspopup="dialog" data-aos="fade-up" data-aos-delay="60">
                     <div class="team-card__avatar"><span>PW</span></div>
                     <h3 class="team-card__name">Parika Wadhwa</h3>
                     <p class="team-card__role">Operations Head</p>
-                </article>
-                <article class="team-card" data-aos="fade-up" data-aos-delay="120">
+                </button>
+                <button type="button" class="team-card" data-member="mehak" aria-haspopup="dialog" data-aos="fade-up" data-aos-delay="120">
                     <div class="team-card__avatar"><span>MPS</span></div>
                     <h3 class="team-card__name">Mehak Preet Singh</h3>
                     <p class="team-card__role">Treasurer</p>
-                </article>
-                <article class="team-card" data-aos="fade-up" data-aos-delay="180">
+                </button>
+                <button type="button" class="team-card" data-member="navdeep" aria-haspopup="dialog" data-aos="fade-up" data-aos-delay="180">
                     <div class="team-card__avatar"><span>NS</span></div>
                     <h3 class="team-card__name">Navdeep Singh</h3>
                     <p class="team-card__role">Marketing Head</p>
-                </article>
-                <article class="team-card" data-aos="fade-up" data-aos-delay="0">
+                </button>
+                <button type="button" class="team-card" data-member="avdesh" aria-haspopup="dialog" data-aos="fade-up" data-aos-delay="0">
                     <div class="team-card__avatar"><span>AS</span></div>
                     <h3 class="team-card__name">Avdesh Sharma</h3>
                     <p class="team-card__role">Chartered Accountant</p>
-                </article>
-                <article class="team-card" data-aos="fade-up" data-aos-delay="60">
+                </button>
+                <button type="button" class="team-card" data-member="mayank" aria-haspopup="dialog" data-aos="fade-up" data-aos-delay="60">
                     <div class="team-card__avatar"><span>MV</span></div>
                     <h3 class="team-card__name">Mayank Verma</h3>
                     <p class="team-card__role">Engineer &amp; Creative Head</p>
-                </article>
-                <article class="team-card" data-aos="fade-up" data-aos-delay="120">
+                </button>
+                <button type="button" class="team-card" data-member="dipanshu" aria-haspopup="dialog" data-aos="fade-up" data-aos-delay="120">
                     <div class="team-card__avatar"><span>DV</span></div>
                     <h3 class="team-card__name">Dipanshu Verma</h3>
                     <p class="team-card__role">Engineer</p>
-                </article>
+                </button>
             </div>
         </div>
+
+        <!-- Slide-in panel with full bio -->
+        <aside class="team-panel" id="teamPanel" hidden aria-hidden="true">
+            <div class="team-panel__backdrop" data-team-close></div>
+            <div class="team-panel__drawer" role="dialog" aria-modal="true" aria-labelledby="teamPanelName">
+                <button type="button" class="team-panel__close" data-team-close aria-label="Close team member details">×</button>
+                <div class="team-panel__media">
+                    <img class="team-panel__image" id="teamPanelImage" alt="" hidden />
+                    <div class="team-panel__avatar" id="teamPanelAvatar"><span></span></div>
+                </div>
+                <div class="team-panel__body">
+                    <h3 class="team-panel__name" id="teamPanelName">&nbsp;</h3>
+                    <p class="team-panel__role" id="teamPanelRole">&nbsp;</p>
+                    <div class="team-panel__bio" id="teamPanelBio"></div>
+                </div>
+            </div>
+        </aside><!-- end team-panel -->
     </section>
 
     <!-- ========== SERVICES ========== -->

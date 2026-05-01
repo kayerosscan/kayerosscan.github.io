@@ -365,6 +365,15 @@ p { margin: 0 0 1em; color: var(--text-dark); }
     position: relative;
     overflow: hidden;
     border: 1px solid transparent;
+    width: 100%;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    display: block;
+}
+.team-card:focus-visible {
+    outline: 3px solid var(--pink-primary);
+    outline-offset: 3px;
 }
 .team-card::before {
     content: '';
@@ -408,6 +417,11 @@ p { margin: 0 0 1em; color: var(--text-dark); }
     color: var(--text-dark);
     margin: 0 0 6px;
     line-height: 1.3;
+    transition: color .2s;
+}
+.team-card:hover .team-card__name,
+.team-card:focus-visible .team-card__name {
+    color: var(--pink-primary);
 }
 .team-card__role {
     color: var(--pink-primary);
@@ -417,6 +431,132 @@ p { margin: 0 0 1em; color: var(--text-dark); }
     letter-spacing: 0.02em;
     text-transform: uppercase;
 }
+
+/* ===== Team detail side panel ===== */
+.team-panel {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    pointer-events: none;
+}
+.team-panel[hidden] { display: none; }
+.team-panel__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 28, 36, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity .35s ease;
+    pointer-events: auto;
+}
+.team-panel.is-open .team-panel__backdrop { opacity: 1; }
+
+.team-panel__drawer {
+    position: absolute;
+    top: 0; right: 0;
+    height: 100%;
+    width: min(460px, 100%);
+    background: var(--white);
+    box-shadow: -20px 0 50px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform .4s cubic-bezier(.2, .8, .2, 1);
+    pointer-events: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--pink-soft) transparent;
+}
+.team-panel.is-open .team-panel__drawer { transform: translateX(0); }
+.team-panel__drawer::-webkit-scrollbar { width: 8px; }
+.team-panel__drawer::-webkit-scrollbar-thumb { background: var(--pink-soft); border-radius: 4px; }
+
+.team-panel__close {
+    position: absolute;
+    top: 16px; right: 16px;
+    z-index: 2;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text-dark);
+    font-size: 1.7rem;
+    line-height: 1;
+    box-shadow: var(--shadow-sm);
+    transition: background .2s, transform .25s, color .2s;
+}
+.team-panel__close:hover {
+    background: var(--pink-mist);
+    color: var(--pink-deep);
+    transform: rotate(90deg);
+}
+
+.team-panel__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(135deg, var(--pink-mist), var(--pink-soft));
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.team-panel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+.team-panel__avatar {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--pink-bright), var(--pink-deep));
+}
+.team-panel__avatar span {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+.team-panel__avatar[hidden] { display: none; }
+
+.team-panel__body {
+    padding: 28px 32px 36px;
+}
+.team-panel__name {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    color: var(--text-dark);
+    margin: 0 0 6px;
+    line-height: 1.2;
+}
+.team-panel__role {
+    color: var(--pink-primary);
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 22px;
+}
+.team-panel__bio p {
+    color: var(--text-soft);
+    line-height: 1.7;
+    margin: 0 0 14px;
+    font-size: 0.96rem;
+}
+.team-panel__bio p:last-child { margin-bottom: 0; }
+
+@media (max-width: 720px) {
+    .team-panel__drawer { width: 100%; }
+    .team-panel__media { aspect-ratio: 4 / 4.2; }
+    .team-panel__body { padding: 22px 22px 28px; }
+    .team-panel__name { font-size: 1.45rem; }
+}
+
+body.team-panel-open { overflow: hidden; }
 
 @media (max-width: 960px) {
     .team__grid { grid-template-columns: repeat(3, 1fr); }
