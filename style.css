@@ -182,11 +182,13 @@ p { margin: 0 0 1em; color: var(--text-dark); }
     position: absolute;
     z-index: 1;
     pointer-events: none;
-    filter: drop-shadow(0 12px 24px rgba(233, 30, 99, 0.15));
+    filter:
+        drop-shadow(0 0 24px rgba(255, 105, 180, 0.4))
+        drop-shadow(0 14px 28px rgba(233, 30, 99, 0.18));
 }
-.parrot--1 { width: 160px; top: 18%; left: 6%; animation: floatA 7s ease-in-out infinite; }
-.parrot--2 { width: 110px; top: 14%; right: 9%; animation: floatB 6s ease-in-out infinite .5s; }
-.parrot--3 { width: 130px; bottom: 12%; right: 14%; animation: floatA 8s ease-in-out infinite 1.2s; }
+.parrot--1 { width: 190px; top: 16%; left: 5%; animation: floatA 7s ease-in-out infinite; }
+.parrot--2 { width: 130px; top: 12%; right: 8%; animation: floatB 6s ease-in-out infinite .5s; }
+.parrot--3 { width: 150px; bottom: 10%; right: 13%; animation: floatA 8s ease-in-out infinite 1.2s; }
 
 @keyframes floatA {
     0%, 100% { transform: translateY(0) rotate(-4deg); }
