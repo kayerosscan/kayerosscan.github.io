@@ -293,8 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         vivek: {
-            name: 'Mr. Vivek Chaturvedi',
-            role: 'Content Validator',
+            name: 'Col. Vivek Chaturvedi (Retd)',
+            role: 'Chief Counsellor & Content Validator',
             initials: 'VC',
             image: 'Names/Vivek.jpg',
             bio: [
@@ -320,9 +320,9 @@ document.addEventListener('DOMContentLoaded', () => {
             initials: 'MPS',
             image: 'Names/Mahak.jpg',
             bio: [
-                "Mehak is the steward of the Foundation's finances. Every rupee we receive — whether from a donor or a grant — is accounted for, audited, and applied directly to patient support, and that discipline is hers.",
-                "She believes that financial transparency is not just compliance — it is a moral covenant with every donor and every family we serve.",
-                "Her care, precision, and uncompromising integrity are the reason every contribution truly reaches another patient."
+                "Mehak is the steward of the Foundation's finances. Every rupee we receive — whether from a donor or a grant — is accounted for, audited, and applied directly to patient support, and that discipline is his.",
+                "He believes that financial transparency is not just compliance — it is a moral covenant with every donor and every family we serve.",
+                "His care, precision, and uncompromising integrity are the reason every contribution truly reaches another patient."
             ]
         },
         navdeep: {
